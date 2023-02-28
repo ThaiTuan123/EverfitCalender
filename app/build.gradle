@@ -51,7 +51,7 @@ dependencies {
     //Dimens
     implementation 'com.intuit.sdp:sdp-android:1.1.0'
 
-    // Coroutine
+    //Coroutine
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 
     //Retrofit
@@ -59,10 +59,10 @@ dependencies {
     implementation('com.squareup.retrofit2:converter-gson:2.9.0')
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
 
-    // ViewModel
+    //ViewModel
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.5.1'
 
-    // LiveData
+    //LiveData
     implementation 'androidx.lifecycle:lifecycle-livedata:2.5.1'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
 
@@ -72,6 +72,4 @@ dependencies {
 
     //Koin For AndroidX
     implementation "io.insert-koin:koin-android:3.3.3"
-
-
 }

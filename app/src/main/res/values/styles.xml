@@ -34,5 +34,4 @@
         <item name="android:textSize">@dimen/_10sdp</item>
         <item name="android:lineHeight">@dimen/_18sdp</item>
     </style>
-
 </resources>
