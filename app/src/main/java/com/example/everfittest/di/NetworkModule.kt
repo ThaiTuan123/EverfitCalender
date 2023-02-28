@@ -2,8 +2,6 @@ package com.example.everfittest.di
 
 import com.example.everfittest.data.service.ApiServices
 import com.example.everfittest.utils.Constant
-
-
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

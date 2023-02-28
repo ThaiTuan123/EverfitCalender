@@ -1,4 +1,4 @@
-package com.example.loginapplicationnl.base
+package com.example.everfittest.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

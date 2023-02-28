@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">EverfitTest</string>
+    <string name="txt_missed">Missed</string>
+    <string name="txt_5_exercises">5 exercises</string>
+    <string name="des_image_check">Image check</string>
+    <string name="tool_mon">MON</string>
+    <string name="des_dots">dots</string>
+    <string name="title_legs_day">Legs day</string>
 </resources>

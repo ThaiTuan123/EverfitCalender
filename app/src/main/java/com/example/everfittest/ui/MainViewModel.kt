@@ -1,6 +1,6 @@
 package com.example.everfittest.ui
 
-import com.example.loginapplicationnl.base.BaseViewModel
+import com.example.everfittest.base.BaseViewModel
 
 class MainViewModel : BaseViewModel() {
 }

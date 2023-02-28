@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.example.loginapplicationnl.base.BaseViewModel
 import com.example.everfittest.dialogManager.DialogManager
 import com.example.everfittest.dialogManager.DialogManagerImpl
 

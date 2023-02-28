@@ -21,7 +21,7 @@
             style="@style/Heading_days_of_the_week"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MON" />
+            android:text="@string/tool_mon" />
 
         <TextView
             android:id="@+id/tvCalendarDate"
@@ -55,7 +55,7 @@
                 style="@style/Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Legs day" />
+                android:text="@string/title_legs_day" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
                     style="@style/Paragraph"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Missed"
+                    android:text="@string/txt_missed"
                     android:textColor="@color/red_bittersweet"
                     android:visibility="visible" />
 
@@ -82,14 +82,15 @@
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="@dimen/_5sdp"
                     android:src="@drawable/black_circle"
-                    android:visibility="visible" />
+                    android:visibility="visible"
+                    android:contentDescription="@string/des_dots" />
 
                 <TextView
                     android:id="@+id/txt_exercises_count"
                     style="@style/Paragraph"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5 exercises"
+                    android:text="@string/txt_5_exercises"
                     android:textColor="@color/violet" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -102,7 +103,8 @@
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="@dimen/_5sdp"
                 android:src="@drawable/ic_check"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:contentDescription="@string/des_image_check" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
