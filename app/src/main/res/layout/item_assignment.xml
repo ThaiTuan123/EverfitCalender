@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="@dimen/_225sdp"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_20sdp"
+    android:orientation="vertical"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="@dimen/_5sdp"
+    app:cardBackgroundColor="@color/white_lilac"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/linearLayoutCompat"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginVertical="@dimen/_8sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_title"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_legs_day" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_title"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="176dp"
+            tools:layout_editor_absoluteY="97dp">
+
+            <TextView
+                android:id="@+id/txt_missed"
+                style="@style/Paragraph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_missed"
+                android:textColor="@color/red_bittersweet"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/img_circle"
+                android:layout_width="@dimen/_4sdp"
+                android:layout_height="@dimen/_4sdp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:src="@drawable/black_circle"
+                android:visibility="visible"
+                android:contentDescription="@string/des_dots" />
+
+            <TextView
+                android:id="@+id/txt_exercises_count"
+                style="@style/Paragraph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/violet" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <ImageView
+            android:id="@+id/img_check"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:src="@drawable/ic_check"
+            android:visibility="gone"
+            android:contentDescription="@string/des_image_check" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

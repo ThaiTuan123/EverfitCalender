@@ -2,7 +2,7 @@ package com.example.everfittest.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class DataResponse(
+data class AssignmentResponse(
     @SerializedName("data")
-    val data: List<Data>
+    val data: List<AssignmentData>
 )

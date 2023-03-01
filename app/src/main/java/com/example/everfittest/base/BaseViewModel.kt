@@ -9,10 +9,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 abstract class BaseViewModel : ViewModel() {
-
     val isLoading = MutableLiveData<Boolean>()
     val exception = MutableLiveData<Exception>()
-
     protected fun <T> launchTaskSync(
         onRequest: suspend CoroutineScope.() -> DataResult<T>,
         onSuccess: (T) -> Unit = {},

@@ -1,4 +1,7 @@
 package com.example.everfittest.data.repository
 
-class AssignmentRepository {
+import com.example.everfittest.data.model.AssignmentResponse
+
+interface AssignmentRepository {
+    suspend fun getAssignments(): AssignmentResponse
 }

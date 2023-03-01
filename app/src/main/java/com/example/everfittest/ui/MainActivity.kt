@@ -6,20 +6,26 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.everfittest.base.BaseActivity
 import com.example.everfittest.data.model.CalendarDateModel
 import com.example.everfittest.databinding.ActivityMainBinding
-import java.util.*
+import com.example.everfittest.utils.DateUtils
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
+    private val viewModel: MainViewModel by viewModel()
     private val adapterCalender = CalendarAdapter(::onclick)
-    private val cal = Calendar.getInstance(Locale.ENGLISH)
-    private val dates = ArrayList<Date>()
 
     override fun inflateViewBinding(inflater: LayoutInflater) =
         ActivityMainBinding.inflate(inflater)
 
     override fun initView() {
         setUpAdapter()
-        cal.add(Calendar.MONTH, -1)
         setUpCalendar()
+        viewBinding.recyclerView.adapter = adapterCalender
+        viewModel.assignmentsObs.observe(this) { assignmentData ->
+            val calendarList = DateUtils.getRangeByWeek().mapIndexed { index, calendar ->
+                CalendarDateModel(calendar,assignmentData.data[index])
+            }
+            adapterCalender.setItems(calendarList)
+        }
     }
 
     /**
@@ -34,11 +40,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     }
 
     override fun initData() {
-        // TODO
-    }
-
-    override fun getViewModelClass(): Class<MainViewModel> {
-        return MainViewModel::class.java
+        viewModel.fetchAssignments()
     }
 
     private fun onclick(cal: CalendarDateModel) {
@@ -47,16 +49,5 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     }
 
     private fun setUpCalendar() {
-        val calendarList = ArrayList<CalendarDateModel>()
-        val monthCalendar = cal.clone() as Calendar
-        val maxDaysInMonth = cal.getActualMaximum(Calendar.DAY_OF_MONTH)
-        dates.clear()
-        monthCalendar.set(Calendar.DAY_OF_MONTH, 1)
-        while (dates.size < maxDaysInMonth) {
-            dates.add(monthCalendar.time)
-            calendarList.add(CalendarDateModel(monthCalendar.time))
-            monthCalendar.add(Calendar.DAY_OF_MONTH, 1)
-        }
-        adapterCalender.setItems(calendarList)
     }
 }

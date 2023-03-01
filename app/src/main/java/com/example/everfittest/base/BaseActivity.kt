@@ -12,7 +12,6 @@ import com.example.everfittest.dialogManager.DialogManagerImpl
 abstract class BaseActivity<V : ViewBinding, VM : BaseViewModel> :
     AppCompatActivity() {
 
-    protected lateinit var viewModel: VM
     protected lateinit var viewBinding: V
 
     private lateinit var dialogManager: DialogManager
@@ -20,7 +19,6 @@ abstract class BaseActivity<V : ViewBinding, VM : BaseViewModel> :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = inflateViewBinding(layoutInflater)
-        viewModel = getBaseViewModel()
         dialogManager = DialogManagerImpl(this)
         setContentView(viewBinding.root)
         initView()
@@ -45,11 +43,7 @@ abstract class BaseActivity<V : ViewBinding, VM : BaseViewModel> :
     abstract fun initData()
 
     open fun registerLiveData() {
-        viewModel.run {
-            isLoading.observe(this@BaseActivity) {
-                if (it) showLoading() else hideLoading()
-            }
-        }
+
     }
 
     /**
@@ -81,9 +75,4 @@ abstract class BaseActivity<V : ViewBinding, VM : BaseViewModel> :
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    open fun getBaseViewModel(): VM {
-        return ViewModelProvider(this)[getViewModelClass()]
-    }
-
-    abstract fun getViewModelClass(): Class<VM>
 }

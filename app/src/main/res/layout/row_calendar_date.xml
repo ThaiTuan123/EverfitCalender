@@ -16,14 +16,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvCalendarDay"
             style="@style/Heading_days_of_the_week"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tool_mon" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvCalendarDate"
             style="@style/Sub_days"
             android:layout_width="wrap_content"
@@ -31,85 +31,19 @@
             tools:text="20" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+    <LinearLayout
+        android:id="@+id/llLayoutAssignment"
         android:layout_width="@dimen/_225sdp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
         android:orientation="vertical"
         app:cardBackgroundColor="@color/white_lilac"
-        app:cardCornerRadius="@dimen/_8sdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/linearLayoutCompat"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_15sdp"
-            android:layout_marginVertical="@dimen/_8sdp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txt_title"
-                style="@style/Title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_legs_day" />
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txt_title"
-                android:layout_marginTop="@dimen/_4sdp"
-                android:orientation="horizontal"
-                tools:layout_editor_absoluteX="176dp"
-                tools:layout_editor_absoluteY="97dp">
-
-                <TextView
-                    android:id="@+id/txt_missed"
-                    style="@style/Paragraph"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txt_missed"
-                    android:textColor="@color/red_bittersweet"
-                    android:visibility="visible" />
-
-                <ImageView
-                    android:id="@+id/img_circle"
-                    android:layout_width="@dimen/_4sdp"
-                    android:layout_height="@dimen/_4sdp"
-                    android:layout_gravity="center"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:src="@drawable/black_circle"
-                    android:visibility="visible"
-                    android:contentDescription="@string/des_dots" />
-
-                <TextView
-                    android:id="@+id/txt_exercises_count"
-                    style="@style/Paragraph"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txt_5_exercises"
-                    android:textColor="@color/violet" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <ImageView
-                android:id="@+id/img_check"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:src="@drawable/ic_check"
-                android:visibility="gone"
-                android:contentDescription="@string/des_image_check" />
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/view_line"
+        android:id="@+id/viewLine"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:alpha="0.1"
