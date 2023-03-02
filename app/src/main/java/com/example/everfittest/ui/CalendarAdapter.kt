@@ -49,6 +49,9 @@ class CalendarAdapter(
                     imgCircle.visibility = if (data.status == 0) View.GONE else View.VISIBLE
                     txtTitle.text = data.title
                     txtExercisesCount.text = context?.getString(R.string.title_exercises,data.exercisesCount)
+                    if (item.isSelected){
+                        context?.let { cardView.setCardBackgroundColor(it.getColor(R.color.red_bittersweet)) };
+                    }
                 }
                 llLayoutAssignment.addView(view.root)
             }
@@ -56,6 +59,8 @@ class CalendarAdapter(
                 tvCalendarDay.setTextColor(R.color.violet)
                 tvCalendarDate.setTextColor(R.color.violet)
             }
+            //handle select
+            root.isSelected = item.isSelected
             root.onClickListenerDelay { onClick.invoke(item) }
         }
     }
