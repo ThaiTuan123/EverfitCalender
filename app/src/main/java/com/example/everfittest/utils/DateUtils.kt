@@ -4,7 +4,6 @@ import java.util.*
 
 object DateUtils {
 
-
     fun getCalendar(): Calendar {
         return Calendar.getInstance(TimeZone.getDefault())
     }
@@ -35,7 +34,6 @@ object DateUtils {
         return dates
     }
 
-
     fun convertDateToEE(date: Int): String {
         when (date) {
             1 -> return "SUN"
@@ -48,5 +46,4 @@ object DateUtils {
             else -> return "Error"
         }
     }
-
 }
