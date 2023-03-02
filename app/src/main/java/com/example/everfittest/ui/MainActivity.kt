@@ -44,8 +44,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     }
 
     private fun onclick(cal: CalendarDateModel) {
-        //TODO set up
-        showToast("view")
+        val id = cal.assignmentData.id
+        
+        showToast(id)
     }
 
     private fun setUpCalendar() {

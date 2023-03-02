@@ -45,12 +45,10 @@ class CalendarAdapter(
                 if (data.id.isNullOrEmpty()) return@forEach
 
                 val view = ItemAssignmentBinding.inflate(LayoutInflater.from(context)).apply {
-                    if (sameDay) {
-                        cardView.setCardBackgroundColor(R.color.violet)
-                    }
                     txtMissed.visibility = if (data.status == 0) View.GONE else View.VISIBLE
+                    imgCircle.visibility = if (data.status == 0) View.GONE else View.VISIBLE
                     txtTitle.text = data.title
-                    txtExercisesCount.text = data.exercisesCount.toString() +" exercises"
+                    txtExercisesCount.text = context?.getString(R.string.title_exercises,data.exercisesCount)
                 }
                 llLayoutAssignment.addView(view.root)
             }
