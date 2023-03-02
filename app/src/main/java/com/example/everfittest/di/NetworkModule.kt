@@ -27,14 +27,6 @@ fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit? {
         .build()
 }
 
-fun provideMovieRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit? {
-    return Retrofit.Builder()
-        .baseUrl(Constant.BASE_URL)
-        .client(okHttpClient)
-        .addConverterFactory(GsonConverterFactory.create(gson))
-        .build()
-}
-
 private fun provideAPIService(retrofit: Retrofit): ApiServices {
     return retrofit.create(ApiServices::class.java)
 }
