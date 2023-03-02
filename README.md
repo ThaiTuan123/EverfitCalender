@@ -30,8 +30,10 @@ TRAINING CALENDAR SCREEN
 Bonus point: Unit test
 
 ## UI
-calender image
+Image UI SHOW
+![Test Image 1](./assets/training.png)
 
+---------------------------------
 
 ## Build Gradle
 
