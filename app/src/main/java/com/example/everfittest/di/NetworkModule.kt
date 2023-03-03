@@ -1,7 +1,11 @@
 package com.example.everfittest.di
 
+import android.content.Context
+import com.chuckerteam.chucker.api.ChuckerCollector
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.example.everfittest.data.service.ApiServices
 import com.example.everfittest.utils.Constant
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -13,7 +17,7 @@ import java.util.concurrent.TimeUnit
 val networkModule = module {
     single { provideGson() }
     single { provideRetrofit(get(), get()) }
-    single { createOkHttpClient() }
+    single { createOkHttpClient(get()) }
     single { provideAPIService(get()) }
 }
 
@@ -31,11 +35,21 @@ private fun provideAPIService(retrofit: Retrofit): ApiServices {
     return retrofit.create(ApiServices::class.java)
 }
 
-fun createOkHttpClient(): OkHttpClient {
+fun createOkHttpClient(context: Context): OkHttpClient {
     val httpLoggingInterceptor = HttpLoggingInterceptor()
     httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
     return OkHttpClient.Builder()
         .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
         .readTimeout(TIME_OUT, TimeUnit.SECONDS)
-        .addInterceptor(httpLoggingInterceptor).build()
+        .addInterceptor(
+            ChuckerInterceptor.Builder(context)
+                .collector(ChuckerCollector(context))
+                .maxContentLength(250000L)
+                .redactHeaders(emptySet())
+                .alwaysReadResponseBody(false)
+                .build()
+        )
+        .addInterceptor(httpLoggingInterceptor)
+        .addNetworkInterceptor(StethoInterceptor())
+        .build()
 }
