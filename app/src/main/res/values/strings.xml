@@ -7,4 +7,5 @@
     <string name="des_dots">dots</string>
     <string name="title_legs_day">Legs day</string>
     <string name="title_exercises">%1$d exercises</string>
+    <string name="txt_complete">complete</string>
 </resources>

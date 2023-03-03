@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class AssignmentResponse(
     @SerializedName("data")
-    val data: List<AssignmentData>
+    var data: List<AssignmentData>
 )

@@ -35,6 +35,7 @@
         android:id="@+id/llLayoutAssignment"
         android:layout_width="@dimen/_225sdp"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_5sdp"
         android:layout_marginEnd="@dimen/_16sdp"
         android:orientation="vertical"
         app:cardBackgroundColor="@color/white_lilac"

@@ -15,5 +15,6 @@ data class Assignment(
     @SerializedName("status")
     val status: Int,
     @SerializedName("title")
-    val title: String
+    val title: String,
+    var isSelect: Boolean = false
 ) : Parcelable

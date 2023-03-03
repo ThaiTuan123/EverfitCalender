@@ -25,7 +25,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txt_title"
             style="@style/Title"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/_150sdp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"

@@ -19,6 +19,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override fun initView() {
         setUpAdapter()
         setUpCalendar()
+        loadingData()
         viewBinding.recyclerView.adapter = adapterCalender
         viewModel.assignmentsObs.observe(this) { assignmentData ->
             val calendarList = DateUtils.getRangeByWeek().mapIndexed { index, calendar ->
@@ -28,12 +29,21 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         }
     }
 
+    private fun loadingData() {
+        viewBinding.swipeRefreshLayout.setOnRefreshListener {
+            val calendarList = DateUtils.getRangeByWeek().map { calendar ->
+                CalendarDateModel(calendar, null)
+            }
+            adapterCalender.setItems(calendarList)
+            viewBinding.swipeRefreshLayout.isRefreshing = false
+        }
+    }
+
     /**
      * Setting up adapter for recyclerview
      */
     private fun setUpAdapter() {
         viewBinding.recyclerView.apply {
-            setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
             adapter = adapterCalender
         }
@@ -43,9 +53,14 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         viewModel.fetchAssignments()
     }
 
-    private fun onclick(cal: CalendarDateModel) {
-        val id = cal.assignmentData.id
-        showToast(id)
+
+    private fun onclick(cal: CalendarDateModel,position: Int) {
+        val id = cal.assignmentData?.id
+        showToast("$id position $position")
+
+        val items = adapterCalender.getItemsData().toMutableList()
+        items[position].isSelected = true
+        adapterCalender.setItems(items)
     }
 
     private fun setUpCalendar() {
