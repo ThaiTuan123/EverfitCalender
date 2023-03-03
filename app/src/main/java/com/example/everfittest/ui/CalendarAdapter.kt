@@ -13,6 +13,7 @@ import com.example.everfittest.data.model.CalendarDateModel
 import com.example.everfittest.databinding.ItemAssignmentBinding
 import com.example.everfittest.databinding.RowCalendarDateBinding
 import com.example.everfittest.utils.DateUtils
+import com.example.everfittest.utils.exts.onClickListenerDelay
 import java.util.*
 
 class CalendarAdapter(
@@ -45,6 +46,9 @@ class CalendarAdapter(
             if (sameDay) {
                 tvCalendarDay.setTextColor(R.color.violet)
                 tvCalendarDate.setTextColor(R.color.violet)
+            } else {
+                tvCalendarDay.setTextColor(R.color.black)
+                tvCalendarDate.setTextColor(R.color.black)
             }
             llLayoutAssignment.removeAllViews()
             item.assignmentData?.assignments?.forEach { data ->
@@ -56,8 +60,7 @@ class CalendarAdapter(
                     txtTitle.text = data.title
                     txtExercisesCount.text =
                         context?.getString(R.string.title_exercises, data.exercisesCount)
-
-                    root.setOnClickListener {
+                    root.onClickListenerDelay {
                         item.assignmentData!!.assignments.find { it.id == data.id }?.isSelect =
                             !data.isSelect
                         context?.getColor(R.color.blue_cornflower)
